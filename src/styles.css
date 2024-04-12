@@ -13,3 +13,7 @@ body {
   padding: 0 20px; */
   font-family: "Noto Serif", serif;
 }
+button {
+  background-color: #5c4efa;
+  @apply font-semibold cursor-pointer;
+}
