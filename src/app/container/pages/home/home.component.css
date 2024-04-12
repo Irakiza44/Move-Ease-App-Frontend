@@ -1,0 +1,10 @@
+.body {
+  background-color: #5c4efa;
+}
+.line {
+  line-height: 1.5;
+}
+button {
+  background-color: #5c4efa;
+  outline: none;
+}

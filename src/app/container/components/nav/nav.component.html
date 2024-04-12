@@ -1,15 +1,19 @@
-<body>
-  <nav>
-    <div class="site-title">
-      <a routerLink="/"><h1>Blog Didier</h1></a>
-      <p>MoveEase</p>
-    </div>
-    <ul>
-      <li><a routerLink="/">Home</a></li>
-      <li><a routerLink="/about">About Us</a></li>
-      <li><a routerLink="/Contact Us">Contact Us</a></li>
-      <li><a routerLink="/Sign Up">SignUp</a></li>
-      <li><a routerLink="/Log In">Login</a></li>
-    </ul>
-  </nav>
-</body>
+
+<nav>
+  <div class="flex gap-2">
+    <a routerLink="/"><img src="assets/logo.svg" alt="logo" class="w-14 h-14">
+    </a>
+    <p class="flex items-center font-bold text-3xl">MoveEase</p>
+  </div>
+  <ul>
+    <li><a routerLink="/home" routerLinkActive="active-link">Home</a></li>
+    <li><a routerLink="/about-us" routerLinkActive="active-link">About
+        Us</a></li>
+    <li><a routerLink="/services"
+        routerLinkActive="active-link">Services</a></li>
+    <li><a routerLink="/contact-us" routerLinkActive="active-link">Contact
+        Us</a></li>
+    <li><a routerLink="/logIn" routerLinkActive="active-link">Login</a></li>
+    <li><a routerLink="/signUp" routerLinkActive="active-link">SignUp</a></li>
+  </ul>
+</nav>
