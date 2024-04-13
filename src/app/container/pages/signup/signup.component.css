@@ -5,7 +5,7 @@
   background-repeat: no-repeat;
   background-size: 100%;
   color: #fff;
-  overflow: hidden; /* Prevent scrolling */
+  overflow: hidden;
 }
 form {
   background-color: #6e9b52;
