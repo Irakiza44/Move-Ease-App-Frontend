@@ -1,5 +1,5 @@
-.body {
-  background-color: #5c4efa;
+.bg-body {
+  background-color: #000;
 }
 .line {
   line-height: 1.5;
@@ -7,4 +7,10 @@
 button {
   background-color: #5c4efa;
   outline: none;
+}
+.opacity-50 {
+  opacity: 0.5;
+}
+.text {
+  color: #e2e2e2;
 }
