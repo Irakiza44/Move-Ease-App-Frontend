@@ -1,0 +1,25 @@
+.bg-image {
+  background-image: url("../../../../assets/image.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  overflow: hidden;
+}
+.img {
+  width: 200px;
+  height: 300px;
+}
+.contact {
+  background-color: #d9d9d9;
+}
+button {
+  @apply py-2 px-6 rounded-md;
+}
+input {
+  @apply w-full px-5 py-2 text-white  border-none outline-none;
+  background-color: #9499b4;
+}
+input::placeholder {
+  color: white;
+}
