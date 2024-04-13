@@ -6,14 +6,11 @@ ul {
   text-decoration: none;
   color: #222;
 }
-
 nav {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 60px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid #ddd;
-  @apply mx-12 py-3;
+  @apply px-12 py-3;
+  border-bottom: 1px solid black;
 }
 nav ul {
   display: flex;
