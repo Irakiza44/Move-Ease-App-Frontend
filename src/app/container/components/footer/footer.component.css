@@ -1,5 +1,5 @@
 footer {
-  @apply px-12 h-52;
+  @apply px-12 h-28 py-2;
   background-color: #d9d9d9;
   color: #000;
   text-align: center;

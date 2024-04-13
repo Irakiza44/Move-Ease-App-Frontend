@@ -1,0 +1,20 @@
+.bg-image {
+  background-image: url("../../../../assets/image.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  overflow: hidden;
+}
+p {
+  color: #534391;
+  @apply py-3 px-8 mt-3 text-2xl;
+  background-color: white;
+}
+.form {
+  background-color: #27a94c;
+}
+li {
+  list-style-type: none;
+  margin-bottom: 10px;
+}
