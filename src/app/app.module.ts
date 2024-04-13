@@ -11,6 +11,7 @@ import { ServicesComponent } from './container/pages/services/services.component
 import { LoginComponent } from './container/pages/login/login.component';
 import { SignupComponent } from './container/pages/signup/signup.component';
 import { ContactUsComponent } from './container/pages/contact-us/contact-us.component';
+import { RegisterComponent } from './container/pages/register/register.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { ContactUsComponent } from './container/pages/contact-us/contact-us.comp
     LoginComponent,
     SignupComponent,
     ContactUsComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
