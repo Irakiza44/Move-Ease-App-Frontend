@@ -14,6 +14,11 @@ import { ContactUsComponent } from './container/pages/contact-us/contact-us.comp
 import { RegisterComponent } from './container/pages/register/register.component';
 import { BudgetingComponent } from './container/pages/budgeting/budgeting.component';
 import { SurveyComponent } from './container/pages/survey/survey.component';
+import { MapComponent } from './container/pages/map/map.component';
+import { AdminDashboardComponent } from './container/pages/admin-dashboard/admin-dashboard.component';
+import { AdminNavbarComponent } from './container/components/admin-navbar/admin-navbar.component';
+import { MoveInCitizenComponent } from './container/pages/admin-dashboard/move-in-citizen/move-in-citizen.component';
+import { DashboardComponent } from './container/pages/admin-dashboard/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +34,11 @@ import { SurveyComponent } from './container/pages/survey/survey.component';
     RegisterComponent,
     BudgetingComponent,
     SurveyComponent,
+    MapComponent,
+    AdminDashboardComponent,
+    AdminNavbarComponent,
+    MoveInCitizenComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,

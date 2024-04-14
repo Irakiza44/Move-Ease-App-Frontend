@@ -9,6 +9,9 @@ import { ContactUsComponent } from './container/pages/contact-us/contact-us.comp
 import { RegisterComponent } from './container/pages/register/register.component';
 import { BudgetingComponent } from './container/pages/budgeting/budgeting.component';
 import { SurveyComponent } from './container/pages/survey/survey.component';
+import { MapComponent } from './container/pages/map/map.component';
+import { AdminDashboardComponent } from './container/pages/admin-dashboard/admin-dashboard.component';
+import { DashboardComponent } from './container/pages/admin-dashboard/dashboard/dashboard.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -21,6 +24,12 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'budgeting-Tools', component: BudgetingComponent },
   { path: 'survey', component: SurveyComponent },
+  { path: 'map', component: MapComponent },
+  {
+    path: 'admin',
+    component: AdminDashboardComponent,
+    children: [{ path: '', component: DashboardComponent }],
+  },
 ];
 
 @NgModule({
