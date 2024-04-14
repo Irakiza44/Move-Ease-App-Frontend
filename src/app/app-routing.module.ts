@@ -8,17 +8,19 @@ import { LoginComponent } from './container/pages/login/login.component';
 import { ContactUsComponent } from './container/pages/contact-us/contact-us.component';
 import { RegisterComponent } from './container/pages/register/register.component';
 import { BudgetingComponent } from './container/pages/budgeting/budgeting.component';
+import { SurveyComponent } from './container/pages/survey/survey.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
-  { path: 'budgeting-Tools', component: BudgetingComponent },
   { path: 'about-us', component: AboutUsComponent },
   { path: 'services', component: ServicesComponent },
   { path: 'signUp', component: SignupComponent },
   { path: 'logIn', component: LoginComponent },
   { path: 'contact-us', component: ContactUsComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'budgeting-Tools', component: BudgetingComponent },
+  { path: 'survey', component: SurveyComponent },
 ];
 
 @NgModule({
