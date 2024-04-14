@@ -1,0 +1,31 @@
+<app-nav></app-nav>
+<div class="mx-12 h-screen">
+  <div class="flex gap-12 my-12">
+    <div
+      class="aside w-2/6 px-8 py-4 flex flex-col justify-center content-center items-center">
+      <h2 class="text-white text-center font-normal mt-8">
+        Map to inform healthcare, schools, and educational institutions.
+      </h2>
+      <a routerLink="/budgeting-Tools"><p
+          class="mt-12 text-white font-semibold">Want to see the cost of living
+          ?</p></a>
+      <img src="assets/map.png" class="w-40 h-32 my-12">
+    </div>
+    <div>
+      hello
+      <!-- this creates a google map on the page with the given lat/lng from -->
+      <!-- the component as the initial center of the map: -->
+      <!-- <agm-map [latitude]="lat" [longitude]="lng">
+  <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+</agm-map> -->
+
+      <!-- <agm-map [latitude]="latitude" [longitude]="longitude" (mapClick)="onChoseLocation($event)">
+  <agm-marker
+    [latitude]="latitude"
+    [longitude]="longitude"
+    *ngIf="locationChosen"></agm-marker>
+</agm-map> -->
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

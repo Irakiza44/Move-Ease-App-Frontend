@@ -1,0 +1,11 @@
+agm-map {
+  height: 400px;
+}
+.aside {
+  background-color: #548a47;
+}
+a {
+  text-decoration: none;
+  border-bottom: 1px solid black;
+  @apply pb-2;
+}
