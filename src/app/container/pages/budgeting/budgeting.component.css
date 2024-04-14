@@ -1,0 +1,8 @@
+input {
+  /* background-color: #548a47; */
+  outline: none;
+  width: 20%;
+}
+input::placeholder {
+  color: black;
+}

@@ -12,6 +12,7 @@ import { LoginComponent } from './container/pages/login/login.component';
 import { SignupComponent } from './container/pages/signup/signup.component';
 import { ContactUsComponent } from './container/pages/contact-us/contact-us.component';
 import { RegisterComponent } from './container/pages/register/register.component';
+import { BudgetingComponent } from './container/pages/budgeting/budgeting.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { RegisterComponent } from './container/pages/register/register.component
     SignupComponent,
     ContactUsComponent,
     RegisterComponent,
+    BudgetingComponent,
   ],
   imports: [
     BrowserModule,
