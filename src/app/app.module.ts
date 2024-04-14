@@ -13,6 +13,7 @@ import { SignupComponent } from './container/pages/signup/signup.component';
 import { ContactUsComponent } from './container/pages/contact-us/contact-us.component';
 import { RegisterComponent } from './container/pages/register/register.component';
 import { BudgetingComponent } from './container/pages/budgeting/budgeting.component';
+import { SurveyComponent } from './container/pages/survey/survey.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { BudgetingComponent } from './container/pages/budgeting/budgeting.compon
     ContactUsComponent,
     RegisterComponent,
     BudgetingComponent,
+    SurveyComponent,
   ],
   imports: [
     BrowserModule,
