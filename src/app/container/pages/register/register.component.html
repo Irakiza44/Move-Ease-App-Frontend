@@ -9,24 +9,21 @@
       class="contact flex flex-col content-center items-center w-4/6 justify-center py-7">
       <h2 class="py-5">Register</h2>
 
-      <input type="email" placeholder="Email" #emailInput
-        (input)="onInputChange(emailInput)"
-        [class.error]="submitted && (!emailInput.value || !isValidEmail(emailInput.value))">
+      <input type="email" placeholder="Email" [(ngModel)]="email"
+        (input)="onInputChange()"
+        [class.error]="submitted && (!email || !isValidEmail(email))">
 
-      <input type="text" placeholder="Full Name" #fullNameInput
-        (input)="onInputChange(fullNameInput)"
-        [class.error]="submitted && !fullNameInput.value">
+      <input type="text" placeholder="Full Name" [(ngModel)]="fullName"
+        (input)="onInputChange()" [class.error]="submitted && !fullName">
 
-      <input type="text" placeholder="National ID" #nationalIDInput
-        (input)="onInputChange(nationalIDInput)"
-        [class.error]="submitted && !nationalIDInput.value">
+      <input type="text" placeholder="National ID" [(ngModel)]="nationalID"
+        (input)="onInputChange()" [class.error]="submitted && !nationalID">
 
-      <input type="text" placeholder="Cell Name" #cellNameInput
-        (input)="onInputChange(cellNameInput)"
-        [class.error]="submitted && !cellNameInput.value">
+      <input type="text" placeholder="Cell Name" [(ngModel)]="cellName"
+        (input)="onInputChange()" [class.error]="submitted && !cellName">
 
-      <button type="button" class="px-4 py-2 text-white bg-blue-500 rounded-md"
-        (click)="onSubmit(emailInput.value, fullNameInput.value, nationalIDInput.value, cellNameInput.value)">Submit</button>
+      <button type="submit" class="px-4 py-2 text-white bg-blue-500 rounded-md"
+        (click)="onSubmit()">Submit</button>
     </div>
   </div>
 </div>
