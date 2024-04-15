@@ -22,3 +22,20 @@ a {
   text-decoration: none;
   color: #fff;
 }
+.input-field {
+  position: relative;
+}
+
+.input-field input {
+  @apply my-4 p-2;
+  outline: none;
+  border: 1px solid #ccc;
+}
+
+.input-field.error input {
+  border: 1.5px solid red;
+}
+
+button {
+  @apply px-4 py-1 mb-3 rounded-lg;
+}
