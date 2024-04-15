@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { AuthService } from '../../../services/auth.service';
+import { RegisterData } from '../../../models/register.model';
 
 @Component({
   selector: 'app-register',
@@ -7,32 +9,58 @@ import { Component } from '@angular/core';
 })
 export class RegisterComponent {
   submitted = false;
+  email = '';
+  fullName = '';
+  nationalID = '';
+  cellName = '';
 
-  onSubmit(
-    email: string,
-    fullName: string,
-    nationalID: string,
-    cellName: string
-  ) {
+  constructor(private authService: AuthService) {}
+
+  onSubmit() {
+    console.log('Submitting form...');
     this.submitted = true;
 
-    if (!email || !fullName || !nationalID || !cellName) {
+    if (!this.email || !this.fullName || !this.nationalID || !this.cellName) {
+      console.log('Form data is incomplete.');
       return;
     }
 
-    if (!this.isValidEmail(email)) {
+    if (!this.isValidEmail(this.email)) {
+      console.log('Invalid email format.');
       return;
     }
 
-    // Your registration logic here
-    console.log('Email:', email);
-    console.log('Full Name:', fullName);
-    console.log('National ID:', nationalID);
-    console.log('Cell Name:', cellName);
+    const userData: RegisterData = {
+      name: this.fullName,
+      email: this.email,
+      natinalId: this.nationalID,
+      cellname: this.cellName,
+    };
+
+    console.log('User Data:', userData);
+
+    this.authService.register(userData).subscribe(
+      (response) => {
+        console.log('Registration successful:', response);
+        alert('Registration successful');
+        this.clearForm();
+        this.submitted = false;
+      },
+      (error) => {
+        console.error('Registration failed:', error);
+        alert('Registration failed');
+      }
+    );
   }
 
-  onInputChange(inputField: HTMLInputElement) {
-    inputField.classList.remove('error');
+  clearForm() {
+    this.email = '';
+    this.fullName = '';
+    this.nationalID = '';
+    this.cellName = '';
+  }
+
+  onInputChange() {
     this.submitted = false;
   }
 

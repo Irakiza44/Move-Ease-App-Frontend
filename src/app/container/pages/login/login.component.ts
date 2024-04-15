@@ -31,8 +31,6 @@ export class LoginComponent {
 
     this.authService.login(loginData).subscribe(
       (response) => {
-        // Store the token in local storage
-        localStorage.setItem('token', response.token);
         if (response.role === 'user') {
           this.router.navigate(['/home']);
         } else if (response.role === 'admin') {
@@ -41,7 +39,6 @@ export class LoginComponent {
       },
       (error) => {
         console.error('Login failed:', error);
-        // Handle error, show error message, etc.
       }
     );
   }
