@@ -76,4 +76,15 @@ export class AuthService {
       })
     );
   }
+
+  // Signup
+  signup(data: any): Observable<any> {
+    const url = `${this.apiUrl}/users/Register`;
+    return this.http.post(url, data).pipe(
+      catchError((error) => {
+        console.error('Error during signup:', error);
+        throw error;
+      })
+    );
+  }
 }
