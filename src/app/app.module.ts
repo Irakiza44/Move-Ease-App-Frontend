@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
+import {
+  BrowserModule,
+  provideClientHydration,
+} from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,6 +22,8 @@ import { AdminDashboardComponent } from './container/pages/admin-dashboard/admin
 import { AdminNavbarComponent } from './container/components/admin-navbar/admin-navbar.component';
 import { MoveInCitizenComponent } from './container/pages/admin-dashboard/move-in-citizen/move-in-citizen.component';
 import { DashboardComponent } from './container/pages/admin-dashboard/dashboard/dashboard.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -42,11 +47,11 @@ import { DashboardComponent } from './container/pages/admin-dashboard/dashboard/
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    HttpClientModule,
   ],
-  providers: [
-    provideClientHydration()
-  ],
-  bootstrap: [AppComponent]
+  providers: [provideClientHydration()],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
