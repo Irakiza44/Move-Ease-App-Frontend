@@ -25,6 +25,7 @@ import { DashboardComponent } from './container/pages/admin-dashboard/dashboard/
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { FormsModule } from '@angular/forms';
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
+    NgxPaginationModule,
   ],
   providers: [provideClientHydration()],
   bootstrap: [AppComponent],
