@@ -13,45 +13,53 @@
       <div class="mb-4">
         <input
           class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-          id="cellName" type="text" placeholder="Cell Name">
+          id="cellName" type="text" placeholder="Cell Name"
+          [(ngModel)]="cellName" name="cellName">
       </div>
 
       <div class="mb-4">
         <input
           class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-          id="transportation" type="text" placeholder="Transportation">
+          id="transportation" type="text" placeholder="Transportation"
+          [(ngModel)]="transportation" name="transportation">
       </div>
 
       <div class="mb-4">
         <input
           class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-          id="movingCompanies" type="text" placeholder="Moving Companies">
+          id="movingCompanies" type="text" placeholder="Moving Companies"
+          [(ngModel)]="movingCompanies" name="movingCompanies">
       </div>
 
       <div class="mb-4">
         <input
           class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-          id="costOfFood" type="text" placeholder="Cost Of Food">
+          id="costOfFood" type="text" placeholder="Cost Of Food"
+          [(ngModel)]="costOfFood" name="costOfFood">
       </div>
 
       <div class="mb-4">
         <input
           class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-          id="health" type="text" placeholder="Health">
+          id="health" type="text" placeholder="Health"
+          [(ngModel)]="health" name="health">
       </div>
 
       <div class="mb-4">
         <input
           class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-          id="rentOfHouse" type="text" placeholder="Rent Of House">
+          id="rentOfHouse" type="text" placeholder="Rent Of House"
+          [(ngModel)]="rentOfHouse" name="rentOfHouse">
       </div>
 
       <div class="flex items-center justify-center">
         <button
           class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-          type="button">
+          type="submit"
+          (click)="onSubmit()">
           Submit
         </button>
+
       </div>
     </form>
   </div>

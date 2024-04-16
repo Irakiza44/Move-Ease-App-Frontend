@@ -11,7 +11,7 @@ export class BudgetingComponent implements OnInit {
   filteredSurveys: any[] = [];
   searchInput: string = '';
   currentPage = 1;
-  itemsPerPage = 8;
+  itemsPerPage = 7;
 
   constructor(private surveyService: SurveyService) {}
 
