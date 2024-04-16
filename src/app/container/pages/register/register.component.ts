@@ -16,6 +16,7 @@ export class RegisterComponent {
   cellName = '';
   showModal = false;
   modalMessage = '';
+  _id: string = '';
 
   constructor(
     private authService: AuthService,
@@ -23,16 +24,11 @@ export class RegisterComponent {
   ) {}
 
   onSubmit() {
-    console.log('Submitting form...');
     this.submitted = true;
-
     if (!this.email || !this.fullName || !this.nationalID || !this.cellName) {
-      console.log('Form data is incomplete.');
       return;
     }
-
     if (!this.isValidEmail(this.email)) {
-      console.log('Invalid email format.');
       return;
     }
 
@@ -43,8 +39,6 @@ export class RegisterComponent {
       cellname: this.cellName,
     };
 
-    console.log('User Data:', userData);
-
     this.authService.register(userData).subscribe(
       (response) => {
         alert('Registration successful');
@@ -52,14 +46,12 @@ export class RegisterComponent {
         this.submitted = false;
       },
       (error) => {
-        console.error('Registration failed:', error);
-
         if (error && error.error && error.error.message) {
           const errorMessage = error.error.message;
-          console.log('Error Message:', errorMessage);
           this.modalMessage = errorMessage;
           this.showModal = true;
         }
+        this._id = error.error._id;
       }
     );
   }
@@ -73,7 +65,22 @@ export class RegisterComponent {
   }
 
   handleYes() {
-    // Handle "Yes" logic here
+    if (this._id) {
+      this.authService.deleteContact(this._id).subscribe(
+        (response) => {
+          this.closeModal();
+          this.clearForm();
+          this.submitted = false;
+        },
+        (error) => {
+          if (error && error.error && error.error.message) {
+            const errorMessage = error.error.message;
+            this.modalMessage = errorMessage;
+            this.showModal = true;
+          }
+        }
+      );
+    }
   }
 
   clearForm() {

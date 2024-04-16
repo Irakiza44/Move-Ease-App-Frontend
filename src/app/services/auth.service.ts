@@ -87,4 +87,19 @@ export class AuthService {
       })
     );
   }
+
+  // Delete a contact
+  deleteContact(id: string): Observable<any> {
+    const url = `${this.apiUrl}/contacts/${id}`;
+
+    // Set headers with token
+    const headers = this.setHeaders();
+
+    return this.http.delete(url, { headers }).pipe(
+      catchError((error) => {
+        console.error('Error during deletion:', error);
+        throw error;
+      })
+    );
+  }
 }
