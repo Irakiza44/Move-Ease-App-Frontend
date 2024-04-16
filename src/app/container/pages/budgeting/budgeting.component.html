@@ -1,44 +1,70 @@
 <app-nav></app-nav>
+
 <div class="mx-12 h-screen">
 
   <div class="my-6">
-    <div class="justify-center  flex items-center my-6">
-      <input type="text" placeholder="Search by Cell Name it's Cost Of Living"
-        class=" my-4  py-2 px-6">
-    </div>
-    <div class="flex justify-center">
-      <table class=" bg-white border-collapse border border-gray-300 mb-4">
-        <thead class="bg-gray-200">
-          <tr>
-            <th class="border border-gray-300 px-4 py-2">Cell Name</th>
-            <th class="border border-gray-300 px-4 py-2">Transportation</th>
-            <th class="border border-gray-300 px-4 py-2">Moving Companies</th>
-            <th class="border border-gray-300 px-4 py-2">Cost Of Food</th>
-            <th class="border border-gray-300 px-4 py-2">Health</th>
-            <th class="border border-gray-300 px-4 py-2">Rent Of House</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr class="text-center">
-            <td class="border border-gray-300 px-4 py-2">Sample Cell</td>
-            <td class="border border-gray-300 px-4 py-2">Sample Transport</td>
-            <td class="border border-gray-300 px-4 py-2">Sample Company</td>
-            <td class="border border-gray-300 px-4 py-2">Sample Cost</td>
-            <td class="border border-gray-300 px-4 py-2">Sample Health</td>
-            <td class="border border-gray-300 px-4 py-2">Sample Rent</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="flex justify-center my-6">
-      <a routerLink="/survey">
-        <button class="py-2 px-4 text-white">
-          Need to add yours?
-        </button>
-      </a>
+    <div class="justify-center flex items-center my-6">
+      <input type="text"
+        placeholder="Search by Cell Name"
+        class="my-4 py-2 px-6"
+        [(ngModel)]="searchInput"
+        (input)="onSearch()">
     </div>
   </div>
 
+  <div class="flex justify-center">
+    <table class="bg-white border-collapse border border-gray-300 mb-4">
+      <thead class="bg-gray-200">
+        <tr>
+          <th class="border border-gray-300 px-4 py-2">Cell Name</th>
+          <th class="border border-gray-300 px-4 py-2">Transportation</th>
+          <th class="border border-gray-300 px-4 py-2">Moving Companies</th>
+          <th class="border border-gray-300 px-4 py-2">Cost Of Food</th>
+          <th class="border border-gray-300 px-4 py-2">Health</th>
+          <th class="border border-gray-300 px-4 py-2">Rent Of House</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="let survey of getPagedSurveys(); let even = even; let odd = odd"
+          class="text-center"
+          [ngClass]="{ 'bg-gray-100': even, 'bg-gray-200': odd }">
+          <td class="border border-gray-300 px-4 py-2">{{ survey.cellName
+            }}</td>
+          <td class="border border-gray-300 px-4 py-2">{{ survey.transportation
+            }}</td>
+          <td class="border border-gray-300 px-4 py-2">{{ survey.movingCompanies
+            }}</td>
+          <td class="border border-gray-300 px-4 py-2">{{ survey.costOfFood
+            }}</td>
+          <td class="border border-gray-300 px-4 py-2">{{ survey.health }}</td>
+          <td class="border border-gray-300 px-4 py-2">{{ survey.rentOfHouse
+            }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="pagination flex justify-between">
+    <span>Page {{ currentPage }} of {{ getPagesArray().length }}</span>
+    <div class="mb-5">
+      <button
+        class="button mr-3 shadow-md font-bold bg-#F6F6F6 py-1 px-3 rounded-xl"
+        (click)="prevPage()" [disabled]="currentPage === 1">Prev</button>
+      <button class="button bg-white shadow-md font-bold py-1 px-3 rounded-xl"
+        (click)="nextPage()"
+        [disabled]="currentPage === getPagesArray().length">Next</button>
+    </div>
+  </div>
+
+  <div class="flex justify-center my-6">
+    <a routerLink="/survey">
+      <button class="py-2 px-4 text-white">
+        Need to add yours?
+      </button>
+    </a>
+  </div>
+
 </div>
+
 <app-footer></app-footer>
