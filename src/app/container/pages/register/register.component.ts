@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../../../services/auth.service';
 import { RegisterData } from '../../../models/register.model';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-register',
@@ -13,8 +14,13 @@ export class RegisterComponent {
   fullName = '';
   nationalID = '';
   cellName = '';
+  showModal = false;
+  modalMessage = '';
 
-  constructor(private authService: AuthService) {}
+  constructor(
+    private authService: AuthService,
+    private modalService: NgbModal
+  ) {}
 
   onSubmit() {
     console.log('Submitting form...');
@@ -41,16 +47,33 @@ export class RegisterComponent {
 
     this.authService.register(userData).subscribe(
       (response) => {
-        console.log('Registration successful:', response);
         alert('Registration successful');
         this.clearForm();
         this.submitted = false;
       },
       (error) => {
         console.error('Registration failed:', error);
-        alert('Registration failed');
+
+        if (error && error.error && error.error.message) {
+          const errorMessage = error.error.message;
+          console.log('Error Message:', errorMessage);
+          this.modalMessage = errorMessage;
+          this.showModal = true;
+        }
       }
     );
+  }
+
+  closeModal() {
+    this.showModal = false;
+  }
+
+  handleNo() {
+    this.closeModal();
+  }
+
+  handleYes() {
+    // Handle "Yes" logic here
   }
 
   clearForm() {
