@@ -28,4 +28,24 @@
   </div>
 </div>
 
+<!-- Modal -->
+<div *ngIf="showModal" class="modal-overlay">
+  <div class="modal-container">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Registration Error</h5>
+      </div>
+      <div class="modal-body">
+        {{ modalMessage }}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary mx-2"
+          (click)="handleYes()">Yes</button>
+        <button type="button" class="btn btn-secondary"
+          (click)="handleNo()">No</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <app-footer></app-footer>
