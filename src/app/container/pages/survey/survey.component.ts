@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { SurveyService } from '../../../services/survey.service';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-survey',
@@ -15,11 +16,13 @@ export class SurveyComponent {
   health: string = '';
   rentOfHouse: string = '';
 
-  constructor(private surveyService: SurveyService, private router: Router) {}
+  constructor(
+    private surveyService: SurveyService,
+    private router: Router,
+    private toastr: ToastrService
+  ) {}
 
   onSubmit(): void {
-    console.log('Submit button clicked');
-
     const surveyData = {
       cellName: this.cellName,
       transportation: this.transportation,
@@ -29,17 +32,14 @@ export class SurveyComponent {
       rentOfHouse: this.rentOfHouse,
     };
 
-    console.log('Form Data:', surveyData);
-
     this.surveyService.postSurvey(surveyData).subscribe(
       (response) => {
-        console.log('Survey posted successfully', response);
-        // Optionally, you can reset the form here
+        this.toastr.success('Survey posted successfully');
         this.resetForm();
         this.router.navigate(['/budgeting-Tools']);
       },
       (error) => {
-        console.error('Error posting survey', error);
+        this.toastr.error(error.error.message);
       }
     );
   }

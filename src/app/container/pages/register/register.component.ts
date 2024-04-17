@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { AuthService } from '../../../services/auth.service';
 import { RegisterData } from '../../../models/register.model';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-register',
@@ -20,7 +21,8 @@ export class RegisterComponent {
 
   constructor(
     private authService: AuthService,
-    private modalService: NgbModal
+    private modalService: NgbModal,
+    private toastr: ToastrService
   ) {}
 
   onSubmit() {
@@ -41,7 +43,7 @@ export class RegisterComponent {
 
     this.authService.register(userData).subscribe(
       (response) => {
-        alert('Registration successful');
+        this.toastr.success('Registration successful');
         this.clearForm();
         this.submitted = false;
       },
@@ -50,6 +52,7 @@ export class RegisterComponent {
           const errorMessage = error.error.message;
           this.modalMessage = errorMessage;
           this.showModal = true;
+          this.toastr.error(error.error.message);
         }
         this._id = error.error._id;
       }

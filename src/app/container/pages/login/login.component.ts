@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { AuthService } from '../../../services/auth.service';
 import { LoginData } from '../../../models/login.model';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,11 @@ import { Router } from '@angular/router';
 export class LoginComponent {
   submitted = false;
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private toastr: ToastrService
+  ) {}
 
   onSubmit(email: string, password: string) {
     this.submitted = true;
@@ -32,12 +37,17 @@ export class LoginComponent {
     this.authService.login(loginData).subscribe(
       (response) => {
         if (response.role === 'user') {
+          this.toastr.success('Welcome, back', response.email);
           this.router.navigate(['/home']);
         } else if (response.role === 'admin') {
+          this.toastr.success('Welcome, back', response.email);
           this.router.navigate(['/admin']);
         }
       },
       (error) => {
+        this.toastr.error(
+          error.error.message || 'An error occurred. Please try again.'
+        );
         console.error('Login failed:', error);
       }
     );

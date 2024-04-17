@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ChatBotService } from '../../../services/chat-bot.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-chat-bot',
@@ -10,7 +11,10 @@ export class ChatBotComponent {
   messages: { type: string; content: string }[] = [];
   currentMessage = '';
 
-  constructor(private chatBotService: ChatBotService) {}
+  constructor(
+    private chatBotService: ChatBotService,
+    private toastr: ToastrService
+  ) {}
 
   sendMessage(): void {
     if (this.currentMessage.trim() === '') {
@@ -24,7 +28,9 @@ export class ChatBotComponent {
         this.messages.push({ type: 'bot', content: response.message });
       },
       (error) => {
-        console.error('Error:', error);
+        this.toastr.error(
+          error.error.message || 'An error occurred. Please try again.'
+        );
       }
     );
 

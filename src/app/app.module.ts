@@ -27,6 +27,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { ChatBotComponent } from './container/pages/chat-bot/chat-bot.component';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -56,6 +58,8 @@ import { ChatBotComponent } from './container/pages/chat-bot/chat-bot.component'
     HttpClientModule,
     FormsModule,
     NgxPaginationModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
   ],
   providers: [provideClientHydration()],
   bootstrap: [AppComponent],
