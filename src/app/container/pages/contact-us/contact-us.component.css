@@ -15,3 +15,6 @@ input {
 input::placeholder {
   color: white;
 }
+.input-field.error input {
+  border: 1.5px solid red;
+}

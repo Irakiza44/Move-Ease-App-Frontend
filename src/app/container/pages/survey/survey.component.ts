@@ -39,6 +39,7 @@ export class SurveyComponent {
         this.router.navigate(['/budgeting-Tools']);
       },
       (error) => {
+        console.log(error);
         this.toastr.error(error.error.message);
       }
     );
