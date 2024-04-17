@@ -12,6 +12,7 @@ import { SurveyComponent } from './container/pages/survey/survey.component';
 import { MapComponent } from './container/pages/map/map.component';
 import { AdminDashboardComponent } from './container/pages/admin-dashboard/admin-dashboard.component';
 import { DashboardComponent } from './container/pages/admin-dashboard/dashboard/dashboard.component';
+import { ChatBotComponent } from './container/pages/chat-bot/chat-bot.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -25,6 +26,7 @@ const routes: Routes = [
   { path: 'budgeting-Tools', component: BudgetingComponent },
   { path: 'survey', component: SurveyComponent },
   { path: 'map', component: MapComponent },
+  { path: 'chat-bot', component: ChatBotComponent },
   {
     path: 'admin',
     component: AdminDashboardComponent,

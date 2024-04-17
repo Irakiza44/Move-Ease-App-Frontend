@@ -26,6 +26,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { ChatBotComponent } from './container/pages/chat-bot/chat-bot.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     AdminNavbarComponent,
     MoveInCitizenComponent,
     DashboardComponent,
+    ChatBotComponent,
   ],
   imports: [
     BrowserModule,
