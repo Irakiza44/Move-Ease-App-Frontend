@@ -60,13 +60,12 @@ export class AuthService {
   register(data: any): Observable<any> {
     const url = `${this.apiUrl}/contacts`;
 
-    // Retrieve stored token from local storage
     const storedToken = this.getToken();
 
     // Set headers with token
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      Authorization: `Bearer ${storedToken}`, // Include the stored token
+      Authorization: `Bearer ${storedToken}`,
     });
 
     return this.http.post(url, data, { headers }).pipe(

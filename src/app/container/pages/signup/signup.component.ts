@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../../../services/auth.service';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-signup',
@@ -11,7 +12,11 @@ export class SignupComponent {
   submitted = false;
   errorMessage = '';
 
-  constructor(private authService: AuthService, private router: Router) {} // Inject AuthService
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private toastr: ToastrService
+  ) {} // Inject AuthService
 
   onSubmit(email: string, password: string, confirmPassword: string) {
     this.submitted = true;
@@ -39,11 +44,13 @@ export class SignupComponent {
 
     this.authService.signup(userData).subscribe(
       (response) => {
+        this.toastr.success('Sign Up Ssuccessful');
         this.router.navigate(['/logIn']);
       },
       (error) => {
-        console.error('Signup error:', error);
-        this.errorMessage = 'Signup failed'; // Display error message
+        this.toastr.error(
+          error.error.message || 'An error occurred. Please try again.'
+        );
       }
     );
   }
