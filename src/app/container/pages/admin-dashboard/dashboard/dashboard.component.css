@@ -1,0 +1,7 @@
+.full {
+  width: 77vw;
+}
+.card {
+  @apply flex justify-center items-center;
+  background-color: #dcdf24;
+}
