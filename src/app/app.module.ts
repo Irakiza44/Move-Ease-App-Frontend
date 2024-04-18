@@ -29,6 +29,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { ChatBotComponent } from './container/pages/chat-bot/chat-bot.component';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ChatComponent } from './container/components/chat/chat.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MoveInCitizenComponent,
     DashboardComponent,
     ChatBotComponent,
+    ChatComponent,
   ],
   imports: [
     BrowserModule,

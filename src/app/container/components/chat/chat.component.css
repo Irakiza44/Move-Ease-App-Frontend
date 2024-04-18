@@ -1,0 +1,5 @@
+.chart-container {
+  width: 70%;
+  height: 30%;
+  @apply ml-20;
+}

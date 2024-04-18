@@ -1,18 +1,72 @@
-<div class="flex screen gap-8">
+<div class="flex h-auto gap-8 bg-white full">
   <app-admin-navbar></app-admin-navbar>
+  <div class="h-full pb-20 bg-white ml-44">
 
-  <div class="flex justify-center space-x-28 my-8 full">
-    <div class="w-44 h-24 card flex flex-col">
-      <p class="my-3">{{ totalUsers }}</p>
-      <p>Users</p>
+    <div class="flex justify-center space-x-24 my-8 full">
+      <div class="w-44 h-24 card flex flex-col">
+        <p class="my-3">{{ totalUsers }}</p>
+        <p>Users</p>
+      </div>
+      <div class="w-44 h-24 card flex flex-col">
+        <p class="my-3">{{ totalContacts }}</p>
+        <p>People Moving In</p>
+      </div>
+      <div class="w-44 h-24 card flex flex-col">
+        <p class="my-3">{{ totalBackups }}</p>
+        <p>People Moving Out</p>
+      </div>
     </div>
-    <div class="w-44 h-24 card flex flex-col">
-      <p class="my-3">{{ totalContacts }}</p>
-      <p>People Moving In</p>
+
+    <app-chat></app-chat>
+
+    <h3 class="text-center mt-8 mb-3">Survey of Cost of Living</h3>
+    <div class="flex justify-center">
+      <table class="bg-white border-collapse border border-gray-300 mb-4">
+        <thead class="bg-gray-200">
+          <tr>
+            <th class="border border-gray-300 px-4 py-2">Cell Name</th>
+            <th class="border border-gray-300 px-4 py-2">Transportation</th>
+            <th class="border border-gray-300 px-4 py-2">Moving Companies</th>
+            <th class="border border-gray-300 px-4 py-2">Cost Of Food</th>
+            <th class="border border-gray-300 px-4 py-2">Health</th>
+            <th class="border border-gray-300 px-4 py-2">Rent Of House</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            *ngFor="let survey of getPagedSurveys(); let even = even; let odd = odd"
+            class="text-center"
+            [ngClass]="{ 'bg-gray-100': even, 'bg-gray-200': odd }">
+            <td class="border border-gray-300 px-4 py-2">{{ survey.cellName
+              }}</td>
+            <td class="border border-gray-300 px-4 py-2">{{
+              survey.transportation
+              }}</td>
+            <td class="border border-gray-300 px-4 py-2">{{
+              survey.movingCompanies
+              }}</td>
+            <td class="border border-gray-300 px-4 py-2">{{ survey.costOfFood
+              }}</td>
+            <td class="border border-gray-300 px-4 py-2">{{ survey.health
+              }}</td>
+            <td class="border border-gray-300 px-4 py-2">{{ survey.rentOfHouse
+              }}</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-    <div class="w-44 h-24 card flex flex-col">
-      <p class="my-3">{{ totalBackups }}</p>
-      <p>People Moving Out</p>
+
+    <div class="pagination flex justify-between mx-12 my-3">
+      <span>Page {{ currentPage }} of {{ getPagesArray().length }}</span>
+      <div class>
+        <button
+          class="button mr-3 shadow-md font-bold bg-#F6F6F6 py-1 px-3 rounded-xl"
+          (click)="prevPage()" [disabled]="currentPage === 1">Prev</button>
+        <button class="button bg-white shadow-md font-bold py-1 px-3 rounded-xl"
+          (click)="nextPage()"
+          [disabled]="currentPage === getPagesArray().length">Next</button>
+      </div>
     </div>
+
   </div>
 </div>
