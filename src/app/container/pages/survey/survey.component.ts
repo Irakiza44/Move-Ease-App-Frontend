@@ -23,6 +23,11 @@ export class SurveyComponent {
   ) {}
 
   onSubmit(): void {
+    if (!this.isFormValid()) {
+      this.toastr.error('Please fill out all fields before submitting.');
+      return;
+    }
+
     const surveyData = {
       cellName: this.cellName,
       transportation: this.transportation,
@@ -39,9 +44,19 @@ export class SurveyComponent {
         this.router.navigate(['/budgeting-Tools']);
       },
       (error) => {
-        console.log(error);
-        this.toastr.error(error.error.message);
+        this.toastr.error(error.error.message || 'Error posting survey');
       }
+    );
+  }
+
+  isFormValid(): boolean {
+    return (
+      !!this.cellName &&
+      !!this.transportation &&
+      !!this.movingCompanies &&
+      !!this.costOfFood &&
+      !!this.health &&
+      !!this.rentOfHouse
     );
   }
 

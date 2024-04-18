@@ -9,3 +9,7 @@ a {
   border-bottom: 1px solid black;
   @apply pb-2;
 }
+#map {
+  height: 400px;
+  width: 100%;
+}

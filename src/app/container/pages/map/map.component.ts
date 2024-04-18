@@ -1,21 +1,44 @@
-import { Component } from '@angular/core';
+/// <reference types="@types/googlemaps" />
+
+import {
+  Component,
+  ElementRef,
+  NgZone,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
+import { Loader } from '@googlemaps/js-api-loader';
 
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
-  styleUrl: './map.component.css',
+  styleUrls: ['./map.component.css'],
 })
-export class MapComponent {
-  lat = 51.678418;
-  lng = 7.809007;
+export class MapComponent implements OnInit {
+  @ViewChild('map', { static: true }) mapElement!: ElementRef;
 
-  latitude = 51.678418;
-  longitude = 7.809007;
-  locationChosen = false;
+  constructor(private ngZone: NgZone) {}
 
-  // onChoseLocation(event) {
-  //   this.latitude = event.coords.lat;
-  //   this.longitude = event.coords.lng;
-  //   this.locationChosen = true;
-  // }
+  ngOnInit(): void {
+    // Load Google Maps
+    const loader = new Loader({
+      version: 'weekly',
+      libraries: ['places'],
+      apiKey: '', // Set apiKey to an empty string or null
+    });
+
+    loader.load().then(() => {
+      this.ngZone.run(() => {
+        this.initMap();
+      });
+    });
+  }
+
+  initMap(): void {
+    // Initialize the map
+    const map = new google.maps.Map(this.mapElement.nativeElement, {
+      center: { lat: 40.7128, lng: -74.006 }, // New York City coordinates
+      zoom: 10,
+    });
+  }
 }
