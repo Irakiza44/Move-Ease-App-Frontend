@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { catchError, tap } from 'rxjs/operators';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root',
@@ -9,7 +10,7 @@ import { catchError } from 'rxjs/operators';
 export class SurveyService {
   private apiUrl = 'http://localhost:5000/api';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private authService: AuthService) {}
 
   getSurveys(): Observable<any> {
     const url = `${this.apiUrl}/surveys`;
@@ -19,8 +20,13 @@ export class SurveyService {
   postSurvey(surveyData: any): Observable<any> {
     const url = `${this.apiUrl}/surveys`;
 
+    // Get the token from AuthService
+    const token = this.authService.getToken();
+
+    // Set the request headers
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
     });
 
     return this.http.post(url, surveyData, { headers: headers }).pipe(

@@ -9,7 +9,7 @@
 }
 form {
   background-color: #6e9b52;
-  @apply pb-16 pt-12 px-12 h-1/2 w-1/6;
+  @apply pb-24 pt-12 px-12 h-1/2 w-1/6;
 }
 input {
   @apply my-4 p-2;
