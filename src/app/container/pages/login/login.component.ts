@@ -41,7 +41,7 @@ export class LoginComponent {
           this.router.navigate(['/home']);
         } else if (response.role === 'admin') {
           this.toastr.success('Welcome, back', response.email);
-          this.router.navigate(['/admin']);
+          this.router.navigate(['admin/dashboard']);
         }
       },
       (error) => {

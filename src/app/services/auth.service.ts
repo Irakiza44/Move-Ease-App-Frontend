@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Injectable({
   providedIn: 'root',
@@ -9,6 +10,7 @@ import { catchError, tap } from 'rxjs/operators';
 export class AuthService {
   private apiUrl = 'http://localhost:5000/api';
   private tokenKey = 'auth_token';
+  private role: string = '';
 
   constructor(private http: HttpClient) {}
 
@@ -22,6 +24,7 @@ export class AuthService {
       tap((response: any) => {
         if (response.accessToken) {
           this.storeToken(response.accessToken);
+          this.role = response.role;
         }
       })
     );
@@ -100,5 +103,19 @@ export class AuthService {
         throw error;
       })
     );
+  }
+
+  isAuthenticated(): boolean {
+    const jwtHelper = new JwtHelperService();
+    const token = this.getToken();
+
+    if (token) {
+      const decodedToken = jwtHelper.decodeToken(token);
+    }
+    return !!token && !jwtHelper.isTokenExpired(token);
+  }
+
+  isAdmin(): boolean {
+    return this.role === 'admin';
   }
 }
