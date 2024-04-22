@@ -32,6 +32,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ChatComponent } from './container/components/chat/chat.component';
 import { CurrentSurveyComponent } from './container/pages/admin-dashboard/current-survey/current-survey.component';
 import { MoveOutCityComponent } from './container/pages/admin-dashboard/move-out-city/move-out-city.component';
+import { UsersComponent } from './container/pages/admin-dashboard/users/users.component';
 
 @NgModule({
   declarations: [
@@ -56,6 +57,7 @@ import { MoveOutCityComponent } from './container/pages/admin-dashboard/move-out
     ChatComponent,
     CurrentSurveyComponent,
     MoveOutCityComponent,
+    UsersComponent,
   ],
   imports: [
     BrowserModule,
