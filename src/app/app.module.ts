@@ -30,6 +30,8 @@ import { ChatBotComponent } from './container/pages/chat-bot/chat-bot.component'
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ChatComponent } from './container/components/chat/chat.component';
+import { CurrentSurveyComponent } from './container/pages/admin-dashboard/current-survey/current-survey.component';
+import { MoveOutCityComponent } from './container/pages/admin-dashboard/move-out-city/move-out-city.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +54,8 @@ import { ChatComponent } from './container/components/chat/chat.component';
     DashboardComponent,
     ChatBotComponent,
     ChatComponent,
+    CurrentSurveyComponent,
+    MoveOutCityComponent,
   ],
   imports: [
     BrowserModule,
