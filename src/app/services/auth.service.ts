@@ -118,4 +118,22 @@ export class AuthService {
   isAdmin(): boolean {
     return this.role === 'admin';
   }
+
+  // Get current user
+  getCurrentUser(): Observable<any> {
+    const url = `${this.apiUrl}/users/current`;
+    const headers = this.setHeaders();
+
+    return this.http.get(url, { headers }).pipe(
+      catchError((error) => {
+        console.error('Error fetching current user:', error);
+        throw error;
+      }),
+      tap((response: any) => {
+        if (response.email && response.role) {
+          this.role = response.role;
+        }
+      })
+    );
+  }
 }
