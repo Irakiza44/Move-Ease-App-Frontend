@@ -14,6 +14,9 @@ import { MapComponent } from './container/pages/map/map.component';
 import { AdminDashboardComponent } from './container/pages/admin-dashboard/admin-dashboard.component';
 import { DashboardComponent } from './container/pages/admin-dashboard/dashboard/dashboard.component';
 import { ChatBotComponent } from './container/pages/chat-bot/chat-bot.component';
+import { MoveInCitizenComponent } from './container/pages/admin-dashboard/move-in-citizen/move-in-citizen.component';
+import { CurrentSurveyComponent } from './container/pages/admin-dashboard/current-survey/current-survey.component';
+import { MoveOutCityComponent } from './container/pages/admin-dashboard/move-out-city/move-out-city.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -31,8 +34,13 @@ const routes: Routes = [
   {
     path: 'admin',
     component: AdminDashboardComponent,
-    canActivate: [AuthGuard],
-    children: [{ path: 'dashboard', component: DashboardComponent }],
+    // canActivate: [AuthGuard],
+    children: [
+      { path: 'dashboard', component: DashboardComponent },
+      { path: 'move-in-city', component: MoveInCitizenComponent },
+      { path: 'current-survey', component: CurrentSurveyComponent },
+      { path: 'move-out-city', component: MoveOutCityComponent },
+    ],
   },
 ];
 

@@ -1,14 +1,22 @@
-<aside class=" h-screen p-4 aside flex items-center flex-col fixed">
-  <p class="my-12">Dashboard</p>
-  <ul>
-    <li>ChatBox</li>
-    <li>Current Survey</li>
-    <li>Move In City Request</li>
-    <li>Move Out City Request</li>
-    <li>Notification</li>
-    <li>Settings</li>
-  </ul>
-  <a routerLink="/logIn"><button
-      class="bg-gray-300 font-normal px-3 py-1 rounded-lg">Go
-      Back</button></a>
+<aside
+  class=" h-screen p-4 aside flex items-center flex-col fixed">
+  <div class="mt-12">
+    <ul>
+      <li><a routerLink="/admin/dashboard"
+          routerLinkActive="active-link">Dashboard</a></li>
+      <li><a routerLink="/admin/current-survey"
+          routerLinkActive="active-link">Current Survey</a></li>
+      <li><a routerLink="/admin/move-in-city"
+          routerLinkActive="active-link">Move
+          In City Request</a></li>
+      <li><a routerLink="/admin/move-out-city"
+          routerLinkActive="active-link">Move
+          Out City Request</a></li>
+    </ul>
+  </div>
+  <div class=" h-full flex items-end mb-12">
+    <a routerLink="/logIn"><button
+        class="bg-gray-300 font-normal px-3 py-1 rounded-lg">Go
+        Back</button></a>
+  </div>
 </aside>

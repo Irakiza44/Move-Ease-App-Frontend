@@ -7,3 +7,13 @@ li {
   list-style: none;
   @apply mb-8 text-lg;
 }
+a,
+ul {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  color: #222;
+}
+.active-link {
+  border-bottom: 3px solid #dcdf24;
+}
