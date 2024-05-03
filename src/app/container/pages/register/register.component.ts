@@ -18,6 +18,7 @@ export class RegisterComponent {
   showModal = false;
   modalMessage = '';
   _id: string = '';
+  nationalIDLength: number = 0;
 
   constructor(
     private authService: AuthService,
@@ -27,7 +28,13 @@ export class RegisterComponent {
 
   onSubmit() {
     this.submitted = true;
-    if (!this.email || !this.fullName || !this.nationalID || !this.cellName) {
+    if (
+      !this.email ||
+      !this.fullName ||
+      !this.nationalID ||
+      this.nationalID.length !== 16 || // Check if National ID contains exactly 16 characters
+      !this.cellName
+    ) {
       return;
     }
     if (!this.isValidEmail(this.email)) {
@@ -95,6 +102,18 @@ export class RegisterComponent {
 
   onInputChange() {
     this.submitted = false;
+    // Update the length of the National ID input whenever it changes
+    this.nationalIDLength = this.nationalID.length;
+
+    // Disable the input field if it reaches 16 characters
+    if (this.nationalIDLength === 16) {
+      const nationalIDInputElement = document.getElementById(
+        'nationalIDInput'
+      ) as HTMLInputElement;
+      if (nationalIDInputElement) {
+        nationalIDInputElement.disabled = true;
+      }
+    }
   }
 
   isValidEmail(email: string): boolean {

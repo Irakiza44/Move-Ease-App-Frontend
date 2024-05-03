@@ -16,8 +16,10 @@
       <input type="text" placeholder="Full Name" [(ngModel)]="fullName"
         (input)="onInputChange()" [class.error]="submitted && !fullName">
 
-      <input type="text" placeholder="National ID" [(ngModel)]="nationalID"
-        (input)="onInputChange()" [class.error]="submitted && !nationalID">
+      <input type="text" id="nationalIDInput" placeholder="National ID"
+        [(ngModel)]="nationalID"
+        (input)="onInputChange()"
+        [class.error]="submitted && (!nationalID || nationalIDLength !== 16)">
 
       <input type="text" placeholder="Cell Name" [(ngModel)]="cellName"
         (input)="onInputChange()" [class.error]="submitted && !cellName">
@@ -35,15 +37,15 @@
       <div class="modal-header">
         <h5 class="modal-title">Registration Error</h5>
       </div>
-      <div class="modal-body">
+      <div class="modal-body my-3">
         {{ modalMessage }}
       </div>
-      <div class="modal-footer">
+      <div class="modal-footer my-3">
         <button type="button" class="btn btn-primary mx-2"
           (click)="handleYes()">Yes</button>
 
         <button type="button" class="btn btn-secondary"
-          (click)="handleNo()">No</button>
+          (click)="handleNo()">Cancel</button>
       </div>
     </div>
   </div>
