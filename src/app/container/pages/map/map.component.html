@@ -1,5 +1,5 @@
 <app-nav></app-nav>
-<div class="mx-12 h-screen">
+<div class="mx-12 min-h-screen">
   <div class="flex gap-12 my-12">
     <div
       class="aside w-2/6 px-8 py-4 flex flex-col justify-center content-center items-center">
@@ -12,20 +12,10 @@
       <img src="assets/map.png" class="w-40 h-32 my-12">
     </div>
     <div>
-      <div #map style="height: 400px; width: 100%;"></div>
-
-      <!-- this creates a google map on the page with the given lat/lng from -->
-      <!-- the component as the initial center of the map: -->
-      <!-- <agm-map [latitude]="lat" [longitude]="lng">
-  <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
-</agm-map> -->
-
-      <!-- <agm-map [latitude]="latitude" [longitude]="longitude" (mapClick)="onChoseLocation($event)">
-  <agm-marker
-    [latitude]="latitude"
-    [longitude]="longitude"
-    *ngIf="locationChosen"></agm-marker>
-</agm-map> -->
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7974.876690124979!2d30.098206634528005!3d-1.9791052195254233!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19dca6372dff0bd5%3A0x13126ca19be9e300!2sKicukiro%2C%20Kigali!5e0!3m2!1sen!2srw!4v1714053725010!5m2!1sen!2srw"
+        width="600" height="450" style="border:0;" allowfullscreen
+        loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
   </div>
 </div>
