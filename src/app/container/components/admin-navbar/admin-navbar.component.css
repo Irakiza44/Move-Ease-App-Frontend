@@ -5,7 +5,7 @@
 }
 li {
   list-style: none;
-  @apply mb-8 text-lg;
+  @apply mb-6 text-lg;
 }
 a,
 ul {

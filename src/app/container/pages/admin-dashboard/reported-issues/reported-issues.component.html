@@ -1,47 +1,44 @@
 <div class="flex min-h-screen gap-8 bg-white full">
   <app-admin-navbar></app-admin-navbar>
-  <div class="h-full pb-20 bg-white ml-56 w-3/4">
+  <div class="h-full pb-20 bg-white ml-96">
 
     <div class="my-6">
       <div class="justify-center flex items-center my-6">
         <input type="text"
-          placeholder="Search by Cell Name"
+          placeholder="Search by Cell Name or Issue Reporter"
           class="my-4 py-2 px-6"
           [(ngModel)]="searchInput"
-          (input)="onSearch()">
+          (input)="onSearchInputChanged()">
       </div>
     </div>
 
-    <div class="flex justify-center ">
+    <div class="flex justify-center">
       <table class="bg-white border-collapse border border-gray-300 mb-4">
         <thead class="bg-gray-200">
           <tr>
+            <th class="border border-gray-300 px-4 py-2">Full Name</th>
+            <th class="border border-gray-300 px-4 py-2">Phone Number</th>
+            <th class="border border-gray-300 px-4 py-2">Email</th>
             <th class="border border-gray-300 px-4 py-2">Cell Name</th>
-            <th class="border border-gray-300 px-4 py-2">Destination</th>
-            <th class="border border-gray-300 px-4 py-2">Type of Transport</th>
-            <th class="border border-gray-300 px-4 py-2">Market Place</th>
-            <th class="border border-gray-300 px-4 py-2">Health Center</th>
-            <th class="border border-gray-300 px-4 py-2">Rent Of House</th>
+            <th class="border border-gray-300 px-4 py-2">Date Encountered</th>
+            <th class="border border-gray-300 px-4 py-2">Description</th>
           </tr>
         </thead>
         <tbody>
           <tr
-            *ngFor="let survey of getPagedSurveys(); let even = even; let odd = odd"
+            *ngFor="let issue of getPagedIssues(); let even = even; let odd = odd"
             class="text-center"
             [ngClass]="{ 'bg-gray-100': even, 'bg-gray-200': odd }">
-            <td class="border border-gray-300 px-4 py-2">{{ survey.cellName
+            <td class="border border-gray-300 px-4 py-2">{{ issue.fullName
+              }}</td>
+            <td class="border border-gray-300 px-4 py-2">{{ issue.phoneNumber
+              }}</td>
+            <td class="border border-gray-300 px-4 py-2">{{ issue.email }}</td>
+            <td class="border border-gray-300 px-4 py-2">{{ issue.cellName
               }}</td>
             <td class="border border-gray-300 px-4 py-2">{{
-              survey.transportation
-              }}</td>
-            <td class="border border-gray-300 px-4 py-2">{{
-              survey.movingCompanies
-              }}</td>
-            <td class="border border-gray-300 px-4 py-2">{{ survey.costOfFood
-              }}</td>
-            <td class="border border-gray-300 px-4 py-2">{{ survey.health
-              }}</td>
-            <td class="border border-gray-300 px-4 py-2">{{ survey.rentOfHouse
+              issue.dateEncountered | date }}</td>
+            <td class="border border-gray-300 px-4 py-2">{{ issue.description
               }}</td>
           </tr>
         </tbody>
@@ -50,7 +47,7 @@
 
     <div class="pagination flex justify-between">
       <span>Page {{ currentPage }} of {{ getPagesArray().length }}</span>
-      <div class>
+      <div>
         <button
           class="button mr-3 shadow-md font-bold bg-#F6F6F6 py-1 px-3 rounded-xl"
           (click)="prevPage()" [disabled]="currentPage === 1">Prev</button>

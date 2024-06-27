@@ -12,22 +12,59 @@
 
       <div class="mb-4">
         <input
-          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          class="shadow appearance-none border rounded add py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           id="cellName" type="text" placeholder="Cell Name"
           [(ngModel)]="cellName" name="cellName">
       </div>
 
-      <div class="mb-4">
-        <input
-          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-          id="transportation" type="text"
-          placeholder="Destination (Ex: Kanombe - Remera)"
-          [(ngModel)]="transportation" name="transportation">
+      <div class="mb-4 w-full ">
+        <select
+          class="shadow appearance-none border rounded w-full py-2 px-3  text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          id="transportation" [(ngModel)]="transportation"
+          name="transportation">
+          <option value>Select Destination</option>
+          <option
+            value="Busanza-Rubilizi-Kabeza-Remera Taxi Park 165">Busanza-Rubilizi-Kabeza-Remera
+            Taxi Park 165</option>
+          <option
+            value="Nyanza Taxi Park-Gatenga Magerwa -NyabugogoTaxi Park 299">Nyanza
+            Taxi Park-Gatenga Magerwa -NyabugogoTaxi Park 299</option>
+          <option value="Remera Taxi Park-Airport-Busanza 250">Remera Taxi
+            Park-Airport-Busanza 250</option>
+          <option value="Remera - Mulindi - Gasogi (Cyaruzinge) 310">Remera -
+            Mulindi - Gasogi (Cyaruzinge) 310</option>
+          <option
+            value="Nyanza Taxi Park-Gatenga Magerwa - Down Town Taxi Park 277">Nyanza
+            Taxi Park-Gatenga Magerwa - Down Town Taxi Park 277</option>
+          <option
+            value="Kabuga - Kigali Parent School - Kimironko Taxi Park 297">Kabuga
+            - Kigali Parent School - Kimironko Taxi Park 297</option>
+          <option
+            value="Bwerankoli – Gikondo (Nyenyeli) – Rwampara – Rugunga - Down Town Taxi Park 268">Bwerankoli
+            – Gikondo (Nyenyeli) – Rwampara – Rugunga - Down Town Taxi Park
+            268</option>
+          <option
+            value="Kimironko-Stadium - Chez Lando - Kimihurura - CBD 253">Kimironko-Stadium
+            - Chez Lando - Kimihurura - CBD 253</option>
+          <option
+            value="Kimironko taxi park - Stadium - Chez Lando - Kacyiru - Nyabugogo Taxi Park 264">Kimironko
+            taxi park - Stadium - Chez Lando - Kacyiru - Nyabugogo Taxi Park
+            264</option>
+          <option
+            value="Kimironko Taxi Park- Kibagabaga - Kinyinya 216">Kimironko
+            Taxi Park- Kibagabaga - Kinyinya 216</option>
+          <option value="Kimironko Taxi Park - Mulindi - Masaka 253">Kimironko
+            Taxi Park - Mulindi - Masaka 253</option>
+          <option
+            value="Kabuga - Kigali Parent School - Kimironko Taxi Park 297">Kabuga
+            - Kigali Parent School - Kimironko Taxi Park 297</option>
+          <option value="Others">Others</option>
+        </select>
       </div>
 
       <div class="mb-4">
         <input
-          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          class="shadow appearance-none border rounded add py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           id="movingCompanies" type="text"
           placeholder="Types of Transport (Ex: Car or Motorcycle)"
           [(ngModel)]="movingCompanies" name="movingCompanies">
@@ -35,21 +72,22 @@
 
       <div class="mb-4">
         <input
-          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          class="shadow appearance-none border rounded add py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           id="costOfFood" type="text" placeholder="Market Place (Ex: Kimironko)"
           [(ngModel)]="costOfFood" name="costOfFood">
       </div>
 
       <div class="mb-4">
         <input
-          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-          id="health" type="text" placeholder="Health Center (Ex: Kanombe)"
+          class="shadow appearance-none border rounded add py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          id="health" type="text"
+          placeholder="Health Center (Ex: Kanombe Hospital)"
           [(ngModel)]="health" name="health">
       </div>
 
       <div class="mb-4">
         <input
-          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          class="shadow appearance-none border rounded add py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           id="rentOfHouse" type="text" placeholder="Rent Of House"
           [(ngModel)]="rentOfHouse" name="rentOfHouse">
       </div>

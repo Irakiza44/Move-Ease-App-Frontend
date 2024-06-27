@@ -1,0 +1,102 @@
+<app-nav></app-nav>
+<div class="mx-20 h-screen">
+  <div class="flex mx-16 my-12 gap-6">
+    <div>
+      <h2 class="text-white  my-4">Have you encountered any problem in
+        your cell? Please let us know by providing
+        information.<br>Please fill that form.</h2>
+      <img src="assets/issue.png" class="img">
+    </div>
+    <div
+      class="contact flex flex-col content-center items-center w-4/6 justify-center">
+      <h2 class="py-5">Report Any Issue</h2>
+      <form [formGroup]="issueForm" (ngSubmit)="onSubmit()" class="pb-6">
+        <div class="input-field"
+          [class.error]="submitted && formControls['fullName'].invalid">
+          <input type="text" placeholder="Full Name"
+            formControlName="fullName">
+          <div
+            *ngIf="formControls['fullName'].invalid && (formControls['fullName'].dirty || formControls['fullName'].touched)"
+            class="error-message">
+            Full Name is required.
+          </div>
+        </div>
+
+        <div class="input-field"
+          [class.error]="submitted && formControls['phoneNumber'].invalid">
+          <input type="text" placeholder="Phone Number"
+            formControlName="phoneNumber">
+          <div
+            *ngIf="formControls['phoneNumber'].hasError('required') && (formControls['phoneNumber'].dirty || formControls['phoneNumber'].touched)"
+            class="error-message">
+            Phone Number is required.
+          </div>
+          <div
+            *ngIf="formControls['phoneNumber'].hasError('pattern') && (formControls['phoneNumber'].dirty || formControls['phoneNumber'].touched)"
+            class="error-message">
+            Please enter a valid 10-digit phone number.
+          </div>
+        </div>
+
+        <div class="input-field"
+          [class.error]="submitted && formControls['email'].invalid">
+          <input type="email" placeholder="Email"
+            formControlName="email">
+          <div
+            *ngIf="formControls['email'].hasError('required') && (formControls['email'].dirty || formControls['email'].touched)"
+            class="error-message">
+            Email is required.
+          </div>
+          <div
+            *ngIf="formControls['email'].hasError('invalidEmail') && (formControls['email'].dirty || formControls['email'].touched)"
+            class="error-message">
+            Please enter a valid email.
+          </div>
+        </div>
+
+        <div class="input-field"
+          [class.error]="submitted && formControls['cellName'].invalid">
+          <input type="text" placeholder="Cell Name"
+            formControlName="cellName">
+          <div
+            *ngIf="formControls['cellName'].invalid && (formControls['cellName'].dirty || formControls['cellName'].touched)"
+            class="error-message">
+            Cell Name is required.
+          </div>
+        </div>
+
+        <div class="input-field"
+          [class.error]="submitted && formControls['dateEncountered'].invalid">
+          <input type="date" placeholder="Date Encountered"
+            formControlName="dateEncountered">
+          <div
+            *ngIf="formControls['dateEncountered'].invalid && (formControls['dateEncountered'].dirty || formControls['dateEncountered'].touched)"
+            class="error-message">
+            Date Encountered is required.
+          </div>
+        </div>
+
+        <div class="input-field"
+          [class.error]="submitted && formControls['description'].invalid">
+          <textarea placeholder="Description"
+            formControlName="description"></textarea>
+          <div
+            *ngIf="formControls['description'].invalid && (formControls['description'].dirty || formControls['description'].touched)"
+            class="error-message">
+            Description is required.
+          </div>
+        </div>
+        <div class="btn-save">
+          <button type="submit" [disabled]="loading"
+            class="px-4 py-2 text-white">
+            <span *ngIf="!loading">Send</span>
+            <span *ngIf="loading">
+              <i class="fa fa-spinner fa-spin"></i> Sending...
+            </span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

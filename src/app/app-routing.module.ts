@@ -18,6 +18,10 @@ import { MoveInCitizenComponent } from './container/pages/admin-dashboard/move-i
 import { CurrentSurveyComponent } from './container/pages/admin-dashboard/current-survey/current-survey.component';
 import { MoveOutCityComponent } from './container/pages/admin-dashboard/move-out-city/move-out-city.component';
 import { UsersComponent } from './container/pages/admin-dashboard/users/users.component';
+import { ReportIssueComponent } from './container/pages/report-issue/report-issue.component';
+import { VistorsComponent } from './container/pages/vistors/vistors.component';
+import { ReportedIssuesComponent } from './container/pages/admin-dashboard/reported-issues/reported-issues.component';
+import { VisitorsComponent } from './container/pages/admin-dashboard/visitors/visitors.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -32,6 +36,8 @@ const routes: Routes = [
   { path: 'survey', component: SurveyComponent },
   { path: 'map', component: MapComponent },
   { path: 'chat-bot', component: ChatBotComponent },
+  { path: 'report-issue', component: ReportIssueComponent },
+  { path: 'register-Vistors', component: VistorsComponent },
   {
     path: 'admin',
     component: AdminDashboardComponent,
@@ -42,6 +48,8 @@ const routes: Routes = [
       { path: 'current-survey', component: CurrentSurveyComponent },
       { path: 'move-out-city', component: MoveOutCityComponent },
       { path: 'users', component: UsersComponent },
+      { path: 'vistors', component: VisitorsComponent },
+      { path: 'reported-issue', component: ReportedIssuesComponent },
     ],
   },
 ];

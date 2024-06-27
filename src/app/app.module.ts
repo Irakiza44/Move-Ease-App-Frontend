@@ -33,6 +33,10 @@ import { ChatComponent } from './container/components/chat/chat.component';
 import { CurrentSurveyComponent } from './container/pages/admin-dashboard/current-survey/current-survey.component';
 import { MoveOutCityComponent } from './container/pages/admin-dashboard/move-out-city/move-out-city.component';
 import { UsersComponent } from './container/pages/admin-dashboard/users/users.component';
+import { ReportIssueComponent } from './container/pages/report-issue/report-issue.component';
+import { VistorsComponent } from './container/pages/vistors/vistors.component';
+import { ReportedIssuesComponent } from './container/pages/admin-dashboard/reported-issues/reported-issues.component';
+import { VisitorsComponent } from './container/pages/admin-dashboard/visitors/visitors.component';
 
 @NgModule({
   declarations: [
@@ -58,6 +62,10 @@ import { UsersComponent } from './container/pages/admin-dashboard/users/users.co
     CurrentSurveyComponent,
     MoveOutCityComponent,
     UsersComponent,
+    ReportIssueComponent,
+    VistorsComponent,
+    ReportedIssuesComponent,
+    VisitorsComponent,
   ],
   imports: [
     BrowserModule,
