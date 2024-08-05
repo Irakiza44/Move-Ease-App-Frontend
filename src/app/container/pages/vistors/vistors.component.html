@@ -9,7 +9,7 @@
     </div>
     <div
       class="contact flex flex-col content-center items-center w-4/6 justify-center">
-      <h2 class="py-5">Visitor's Registration </h2>
+      <h2 class="py-5">Visitor's Registration</h2>
       <form [formGroup]="visitorForm" (ngSubmit)="onSubmit()" class="pb-6">
         <div class="input-field"
           [class.error]="submitted && formControls['fullName'].invalid">
@@ -59,8 +59,9 @@
 
         <div class="input-field"
           [class.error]="submitted && formControls['dateOfArrival'].invalid">
-          <input type="date" placeholder="Date of Arrival"
-            formControlName="dateOfArrival">
+          <input type="text" formControlName="dateOfArrival"
+            customDatePlaceholder
+            placeholder="Date of Arrival:  dd / mm / yyyy">
           <div
             *ngIf="formControls['dateOfArrival'].invalid && (formControls['dateOfArrival'].dirty || formControls['dateOfArrival'].touched)"
             class="error-message">
@@ -70,12 +71,13 @@
 
         <div class="input-field"
           [class.error]="submitted && formControls['timeOfDeparture'].invalid">
-          <input type="text" placeholder="Time of Departure"
-            formControlName="timeOfDeparture">
+          <input type="text" formControlName="timeOfDeparture"
+            customDatePlaceholder
+            placeholder="Date of Departure:  dd / mm / yyyy">
           <div
             *ngIf="formControls['timeOfDeparture'].invalid && (formControls['timeOfDeparture'].dirty || formControls['timeOfDeparture'].touched)"
             class="error-message">
-            Time of Departure is required.
+            Date of Departure is required.
           </div>
         </div>
 

@@ -67,7 +67,7 @@
 
         <div class="input-field"
           [class.error]="submitted && formControls['dateEncountered'].invalid">
-          <input type="date" placeholder="Date Encountered"
+          <input type="text" placeholder="Date Encountered: dd / mm / yyyy"
             formControlName="dateEncountered">
           <div
             *ngIf="formControls['dateEncountered'].invalid && (formControls['dateEncountered'].dirty || formControls['dateEncountered'].touched)"
